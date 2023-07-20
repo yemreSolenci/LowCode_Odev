@@ -1,0 +1,31 @@
+-- AdventureWorks2017 veritabanında bulunan Product tablosundan, renkleri 'Red' ve 'Blue' olan ürünleri listeleyin.
+
+Select * from Production.Product where color in ('red','blue')
+
+-- AdventureWorks2017 veritabanında bulunan Customer tablosundan, belirli müşteri kimlik numaralarına sahip müşterileri listeleyin.
+
+Select * from Sales.Customer where CustomerID = '5'
+
+-- AdventureWorks2017 veritabanında bulunan Product tablosundan, ürün adında "Mountain" kelimesi geçen ürünleri listeleyin.
+
+Select * from Production.Product where Name like '%Mountain%'
+
+-- AdventureWorks2017 veritabanında bulunan Product tablosundan, ürün adı Touring-1000' veya 'Touring-2000' olan ürünleri listeleyin.
+
+Select * from Production.Product where name like '%Touring-1000%' or name like '%Touring-2000%'  -- in ile like(%) operatörü kullanılabilir mi?
+
+-- AdventureWorks2017 veritabanında bulunan Person tablosundan, adı A' ile başlayan kişileri listeleyin.
+
+Select * from Person.Person where FirstName like 'A%'
+
+-- AdventureWorks2017 veritabanında bulunan Product tablosundan, ürün adında 'Road' kelimesi geçen ve rengi 'Black' olan ürünleri listeleyin.
+
+Select * from Production.Product where name like '%Road%' and Color = 'Black'
+
+-- AdventureWorks2017 veritabanında bulunan Employee tablosundan, belirli departmanlarda çalışan çalışanları listeleyin.
+
+Select * from HumanResources.Employee where JobTitle = 'Buyer'
+
+-- AdventureWorks2017 veritabanında bulunan Product tablosundan, ürün adında 'Bike' kelimesi geçen ve fiyatı 1000 ile 2000 arasında olan ürünleri listeleyin.
+
+Select * from Production.Product where name like '%Bike%' and ListPrice > '1000' and ListPrice < '2000'
