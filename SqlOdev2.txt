@@ -1,0 +1,80 @@
+SQL SERVER’DA METİNSEL,SAYISAL VE TARİHSEL VERİ TİPLERİNİ VE AÇIKLAMLARINI YAZINIZ.
+Metinsel Veri Tipleri:
+CHAR(n): Unicode’u desteklemez. Sabit uzunluktaki karakter dizilerini temsil eder. "n" parametresi, karakter dizisinin maksimum uzunluğunu belirtir. Belirtilenden az karakter girilse dahi giriş yapılan boyut kadar yer kaplar. Veri boyutu benzer veya sabit olan verilerde kullanılması önerilir. 8000 karaktere kadar değer alabilir.
+
+VARCHAR(n): Veri uzunluğu, belirtilen maksimum uzunluğa kadar değişebilir. hardan farklı olarak verinin boyutu kadar yere kaplar. 8000 karaktere kadar depolama yapar.
+
+TEXT: Uzun metin verilerini depolamak için kullanılır. VARCHAR'dan daha büyük miktarlarda metni tutmak için kullanılır.
+
+NCHAR(n): Sabit uzunluktaki Unicode karakter dizilerini temsil eder. Her karakter, 2 byte alan kaplar, çünkü Unicode karakterleri destekler. Maksimum 4000 karaktere kadar değer alabilir.
+
+NVARCHAR(n): Değişken uzunluktaki Unicode karakter dizilerini temsil eder. Veri uzunluğu, belirtilen maksimum uzunluğa kadar değişebilir. 4000 karaktere kadar değer alabilir.
+
+NTEXT: 2005 sürümünden itibaren kullanımdan kaldırılmıştır ve yerine NVARCHAR(MAX) veya NVARBINARY(MAX) veri tiplerinin kullanılması önerilmiştir.
+
+Sayısal Veri Tipleri:
+BIT: Bir byte uzunluğunda tam sayı veri tipidir.Genellikle evet/hayır şeklinde mantıksal bilgileri tutmak için kullanılır.
+
+TINYINT: 0 ile 255 arasındaki tamsayı verileri için kullanılan veri tipi. 1 byte büyüklğüne sahiptir.
+
+SMALLINT: Küçük tamsayıları temsil eder. Değer aralığı -32,768 ile 32,767 arasındadır. 2 byte büyüklüğünde.
+
+INT: Tamsayı verilerini temsil eder. Değer aralığı -2,147,483,648 ile 2,147,483,647 arasındadır. 4 byte büyüklüğünde.
+
+BIGINT: Büyük tamsayıları temsil eder. Değer aralığı -263 (-9,223,372,036,854,775,808) ile 263 (9,223,372,036,854,775,807) arasındadır. 8 byte büyüklüğünde.
+
+FLOAT(n): Kesirli sayıları temsil eder. "n" parametresi, kayan noktalı sayının maksimum bit uzunluğunu (24 4 bayt 7 basamaklı ondalık kesirli, 53 8 bayt 15 basamaklı ondalık kesirli) belirtir. 8 bayt büyüklüğünde. Float, bilimsel hesaplamalarda ve büyük sayıların depolanmasında tercih edilebilir ancak kesin hassasiyet gerektiren finansal hesaplamalar gibi alanlarda kullanılmamalıdır
+
+REAL: Dört byte'lık kayan noktalı sayıları temsil eder. Yaklaşık 7 basamak doğruluğa sahip bir veri tipidir. Daha büyük veri aralıklarına ihtiyaç duyan ve yüksek performans gerektiren durumlar için tercih edilir.
+
+NUMERIC(p, s), DECIMAL(p, s): Hassas ondalık sayıları temsil ederler. "p" parametresi, toplam basamak sayısını, "s" parametresi ise ondalık basamak sayısını belirtir. Veri tipi boyutu belirtilen basamak sayılarına göre değişkenlik gösterebilir.-38 ve +38 basamak arası verileri depolayabilir. -10³⁸ ,10³⁸ arası ondalık ve tam sayı türünde veri saklayabilirler.
+
+MONEY: Para birimi değerlerini temsil eder. Ondalık basamak sayısı 4'tür. Değer aralığı -263 (-9,223,372,036,854,775,808) ile 263-1 (9,223,372,036,854,775,807) arasındadır. 8 byte boyutunda.
+
+SMALLMONEY: Daha küçük aralıklı para birimi değerlerini temsil eder. Değer aralığı -231 (-32,768) ile 231-1 (32,767) arasındadır. 4 bayt büyüklüğünde.
+
+Tarihsel Veri Tipleri:
+DATE: 2008 ve üzeri versiyonlarda vardır. Yalnızca tarih bilgisini temsil eder YYYY-AA-GG (yıl, ay, gün). 3 byte uzunluğunda veri tipi. (0001-01-01 ile 9999-12-31 arasında).
+
+TIME: Yalnızca saat bilgisini temsil eder (saat, dakika, saniye, salise) 7 basamaklı. Kullanıcı tarafından değiştirilebilen 3–5 byte arası yer kaplayan veri tipi. (02:57:03)
+
+DATETIME: Tarih ve saat bilgisini bir arada temsil eder. 8 byte uzunluğunda veri tipi. 1 Ocak 1753–31 Aralık 9999 arası veriler için kullanılır. (2023-07-21 02:57:24)
+
+DATETIME2: 2008 ve üzeri versiyonlarda vardır. 1 Ocak 0001–31 Aralık 9999 tarihleri arası verileri tutar. Salise hassasiyeti daha yüksektir. Boyutu salise hassasiyetine göre 6–8 byte arası değişebilir. (2023-07-21 02:57:24.5489610)
+
+SMALLDATETIME: 4 byte uzunluğunda veri tipidir. (1900-01-01 00:00:00 ile 2079-06-06 23:59:59 arasında).
+
+DATETİMEOFFSET: 2008 ve üzeri versiyonlarda vardır. Bu veri tipi, tarih ve saat bilgisiyle birlikte saat dilimi (timezone) bilgisini de içeren tarih ve saat verilerini depolar.
+(2023-07-21 02:56:44.7646156 +03:00)
+
+TIMESTAMP, ROWVERSION: Zaman damgasını temsil eder. Genellikle bir tablonun güncellenme zamanını otomatik olarak takip etmek için kullanılır. Otomatik olarak oluşturulan ve değişiklikleri izlemek için kullanıldığı için genellikle NOT NULL ve UNIQUE kısıtlamalarına sahip olur. Binary türünde özel değer alan 8 bayt boyutunda bir veri tipidir.
+
+—SQL SERVER ÜZERİNDE BİR DATAKOD ADINDA BİR DATABASE OLUŞTURUNUZ. OLUŞTURULAN BU DATABASE ALTINDA PERSONEL ADINDA BİR TABLO OLUŞTURUNUZ. PERSONEL TABLOSU ALTINDA AD,SOYAD VE DOGUMTARIHI ADINDA 3 KOLON OUSTURUNUZ. BU TABLOYA 10 INSERT ISLEMI YAPINIZ.
+
+CREATE DATABASE DATAKOD
+GO
+USE DATAKOD
+
+CREATE TABLE PERSONEL
+(
+AD NVARCHAR(50),
+SOYAD NVARCHAR(50),
+DOGUMTARIHI DATE,
+)
+
+INSERT INTO PERSONEL (AD, SOYAD, DOGUMTARIHI) VALUES ('Ahmet', 'SADIK', '1987-04-08')
+INSERT INTO PERSONEL VALUES ('Ali', 'YILDIRIM', '1996-12-03')
+INSERT INTO PERSONEL VALUES ('Selin', 'DEMİR', '1987-09-17')
+INSERT INTO PERSONEL VALUES ('Eren', 'KARA', '1998-05-21')
+INSERT INTO PERSONEL VALUES ('Leyle', 'AKSOY', '1990-11-30')
+INSERT INTO PERSONEL VALUES ('Ege', 'KAYA', '1984-07-09')
+INSERT INTO PERSONEL VALUES ('Elif', 'AYDIN', '1993-03-12')
+INSERT INTO PERSONEL VALUES ('Cem', 'ARSLAN', '1989-06-25')
+INSERT INTO PERSONEL VALUES ('İrem', 'ERDEM', '1997-01-18')
+INSERT INTO PERSONEL VALUES ('Can', 'ÇELİK', '1986-08-05')
+
+SELECT * FROM PERSONEL
+
+-- Veya veriler aynı olucak ise insert için kullanılabilinir:
+INSERT INTO PERSONEL VALUES ('Ali', 'YILDIRIM', '1996-12-03')
+GO 10
