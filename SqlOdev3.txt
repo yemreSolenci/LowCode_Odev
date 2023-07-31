@@ -1,0 +1,49 @@
+AdventureWorks2017 veritabanındaki "Product" tablosundaki ürünlerin toplam sayısını bulun.
+
+use AdventureWorks2017
+select count(ProductID) as [Toplam Urun Sayisi] from Production.Product
+
+
+AdventureWorks2017 veritabanındaki "SalesOrderDetail" tablosundaki tüm satışların toplam tutarını bulun.
+
+select count(LineTotal) as [Satıslarin Toplam Tutari] from Sales.SalesOrderDetail
+
+
+AdventureWorks2017 veritabanındaki "Employee" tablosundaki çalışanların ortalama maaşını bulun.
+
+select avg(Rate) as [Ortalama Maas] from HumanResources.EmployeePayHistory
+
+
+AdventureWorks2017 veritabanındaki "Employee" tablosundaki en yüksek maaşa sahip çalışanın adını ve maaşını bulun.
+
+select FirstName+SPACE(1)+MiddleName+' '+LastName as 'Ad Soyad' 
+from Person.Person 
+where BusinessEntityID = (select BusinessEntityID 
+from HumanResources.EmployeePayHistory where Rate = (select MAX(Rate) 
+from HumanResources.EmployeePayHistory))
+
+-- Maaşı da görmek için inner join gerekli
+
+select TOP 1 FirstName+SPACE(1)+MiddleName+' '+LastName as 'Ad Soyad', PH.Rate
+from Person.Person  as P join HumanResources.EmployeePayHistory as PH 
+on P.BusinessEntityID = PH.BusinessEntityID
+order by PH.Rate desc
+
+
+AdventureWorks2017 veritabanındaki "Product" tablosundaki en düşük stok miktarına sahip ürünün adını ve stok miktarını bulun.
+
+select P.Name, W.StockedQty from Production.Product as P 
+join Production.WorkOrder as W 
+on P.ProductID = W.ProductID 
+where StockedQty = (select MIN(StockedQty) from Production.WorkOrder)
+
+
+AdventureWorks2017 veritabanındaki "Customer" tablosundaki müşterilerin ülkelere göre sayısını bulun ve en yüksek müşteri sayısına sahip ilk 5 ülkeyi sıralayın
+
+select TOP 5 cr.Name,COUNT(*) as 'Musteri Sayisi' from Sales.Customer as c
+inner join Sales.SalesTerritory as st
+on c.TerritoryID=st.TerritoryID
+inner join Person.CountryRegion as cr
+on st.CountryRegionCode=cr.CountryRegionCode
+group by cr.Name
+order by [Musteri Sayisi] desc
