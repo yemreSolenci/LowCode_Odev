@@ -118,7 +118,7 @@
                 <InArgument x:TypeArguments="x:String">https://github.com/yemreSolenci/LowCode_Odev/blob/main/UiPathOdev1</InArgument>
               </Assign.Value>
             </Assign>
-            <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[&quot;Merhaba,&quot;+vbCrLf+&quot;Halkbank Low-Code Academy UiPatch ödevi GitHub linki:&quot;+vbCrLf+vbCrLf+gitLink]" BodyType="Text" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,380" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="UiPath Ödev" To="emrem_sin@hotmail.com" UseDocumentAsBody="False">
+            <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Account="[Gmail]" Body="[&quot;Merhaba,&quot;+vbCrLf+&quot;Halkbank Low-Code Academy UiPatch ödevi GitHub linki:&quot;+vbCrLf+vbCrLf+gitLink]" BodyType="Text" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,380" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" IsDraft="False" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="UiPath Ödev" To="krmbyrm.dev@gmail.com" UseDocumentAsBody="False">
               <umab:SendMailX.Files>
                 <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
               </umab:SendMailX.Files>
